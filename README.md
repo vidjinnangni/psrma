@@ -113,3 +113,7 @@ npx tsc -p tsconfig.app.json --noEmit
 - **PRISMA 2020 checklist as a worksheet aid**: the 27 items are freely paraphrased from the structure of the PRISMA 2020 statement (Page et al., 2021), not a reproduction of the official document. Check against [the original document](http://www.prisma-statement.org/) before any submission.
 - **Best-effort background import**: if an unexpected failure occurs during the error-recovery phase, a search may remain displayed as "in progress" without completing; start a new search in that case.
 - **No blinded multi-reviewer screening**: a single person, one decision per study and per stage.
+
+## License
+
+[MIT](LICENSE)
