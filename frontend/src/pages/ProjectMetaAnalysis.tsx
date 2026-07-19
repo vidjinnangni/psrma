@@ -80,6 +80,9 @@ export default function ProjectMetaAnalysis() {
   useEffect(() => {
     if (!projectId) return
     setLoading(true)
+    api.listMetaAnalyses(projectId).then((runs) => {
+      if (runs.length > 0) setCurrentResult(runs[0])
+    })
     loadAll().finally(() => setLoading(false))
   }, [projectId, loadAll])
 

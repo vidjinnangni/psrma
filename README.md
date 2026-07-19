@@ -4,6 +4,8 @@ Web tool for conducting a systematic review and meta-analysis following the **PR
 
 Built for **solo, local use**: no account, no authentication, one SQLite database per workstation.
 
+📖 **User guide**: [English](docs/user-guide.md) · [Français](docs/guide-utilisation.md)
+
 ## Features
 
 The pipeline covers all eight stages of a systematic review, from search to export:
