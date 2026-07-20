@@ -180,7 +180,7 @@ def export_report(project_id: int, db: Session = Depends(get_db)):
         "",
         f"- Records identifiés : {flow.records_identified}",
         f"- Doublons retirés : {flow.duplicates_removed}",
-        f"- Records criblés (titre/résumé) : {flow.records_screened}",
+        f"- Records triés (titre/résumé) : {flow.records_screened}",
         f"- Exclus (titre/résumé) : {flow.records_excluded_title_abstract}",
         f"- Recherchés en texte intégral : {flow.reports_sought_full_text}",
         f"- Exclus (texte intégral) : {flow.records_excluded_full_text}",

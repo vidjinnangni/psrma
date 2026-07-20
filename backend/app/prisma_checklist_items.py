@@ -77,7 +77,7 @@ CHECKLIST_ITEMS = [
     {
         "id": "16",
         "section": "Résultats",
-        "prompt": "Rapporter les effectifs identifiés, criblés, exclus (avec motifs) et inclus — diagramme de flux.",
+        "prompt": "Rapporter les effectifs identifiés, triés, exclus (avec motifs) et inclus — diagramme de flux.",
     },
     {"id": "17", "section": "Résultats", "prompt": "Présenter les caractéristiques clés de chaque étude incluse."},
     {"id": "18", "section": "Résultats", "prompt": "Présenter l'évaluation du risque de biais pour chaque étude incluse."},

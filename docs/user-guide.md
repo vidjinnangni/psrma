@@ -57,7 +57,7 @@ Click a search in the list to filter the records shown below to the ones it foun
 
 ![Title/abstract screening screen with a record card](images/screening-title-abstract.png)
 
-Click **"Cribler titre/résumé"** ("Screen title/abstract") from the project page.
+Click **"Tri sur titre/résumé"** ("Sort on title/abstract") from the project page.
 
 The screen shows one card per record (title, authors, journal, year, abstract) with three possible decisions:
 
@@ -77,7 +77,7 @@ The progress bar at the top shows how many records have been screened out of the
 
 ![Full-text screening screen with the DOI link](images/screening-full-text.png)
 
-Click **"Cribler texte intégral"** ("Screen full text"). It works exactly like title/abstract screening, with two differences:
+Click **"Tri en texte intégral"** ("Sort in full text"). It works exactly like title/abstract screening, with two differences:
 
 - Only records **included** at the title/abstract stage appear in this queue.
 - An **"Ouvrir le texte intégral ↗"** ("Open full text ↗") link (to the DOI) is shown on each card so you can read the full article before deciding.
@@ -90,7 +90,7 @@ The badge at the top of the page (**1. Titre / résumé** — **2. Texte intégr
 
 Click **"Diagramme PRISMA"** ("PRISMA diagram"). The diagram is generated automatically from your screening decisions, following the standard PRISMA 2020 structure:
 
-**Identification** → records identified via OpenAlex, duplicates removed → **Selection** → records screened and excluded (with reasons) at the title/abstract stage, then at the full-text stage → **Inclusion** → studies included in the review.
+**Identification** → records identified via OpenAlex, duplicates removed → **Screening** → records screened and excluded (with reasons) at the title/abstract stage, then at the full-text stage → **Inclusion** → studies included in the review.
 
 A separate box flags any records still marked uncertain or not yet screened — a category specific to this tool, not part of the official PRISMA diagram.
 

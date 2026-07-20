@@ -125,7 +125,7 @@ export default function ProjectDetail() {
   const handleDeleteProject = async () => {
     if (!project) return
     const confirmed = window.confirm(
-      `Supprimer définitivement "${project.name}" ? Toutes les recherches, décisions de criblage, extractions et méta-analyses associées seront perdues. Cette action est irréversible.`,
+      `Supprimer définitivement "${project.name}" ? Toutes les recherches, décisions de tri, extractions et méta-analyses associées seront perdues. Cette action est irréversible.`,
     )
     if (!confirmed) return
     await api.deleteProject(projectId)
@@ -158,13 +158,13 @@ export default function ProjectDetail() {
             to={`/projects/${projectId}/screening/title-abstract`}
             className="rounded-lg border border-line px-4 py-2 text-sm font-medium text-ink transition hover:border-accent"
           >
-            Cribler titre/résumé
+            Tri sur titre/résumé
           </Link>
           <Link
             to={`/projects/${projectId}/screening/full-text`}
             className="rounded-lg border border-line px-4 py-2 text-sm font-medium text-ink transition hover:border-accent"
           >
-            Cribler texte intégral
+            Tri en texte intégral
           </Link>
           <Link
             to={`/projects/${projectId}/extraction`}

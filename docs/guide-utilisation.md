@@ -8,8 +8,8 @@ Ce guide suppose que l'application est déjà installée et lancée (voir le [RE
 
 1. [Créer un projet](#1-créer-un-projet)
 2. [Rechercher sur OpenAlex](#2-rechercher-sur-openalex)
-3. [Cribler les titres et résumés](#3-cribler-les-titres-et-résumés)
-4. [Cribler le texte intégral](#4-cribler-le-texte-intégral)
+3. [Tri sur titres et résumés](#3-tri-sur-titres-et-résumés)
+4. [Tri en texte intégral](#4-tri-en-texte-intégral)
 5. [Lire le diagramme de flux PRISMA](#5-lire-le-diagramme-de-flux-prisma)
 6. [Extraire les données](#6-extraire-les-données)
 7. [Faire la méta-analyse](#7-faire-la-méta-analyse)
@@ -26,7 +26,7 @@ Ce guide suppose que l'application est déjà installée et lancée (voir le [RE
 Sur la page d'accueil, saisir un nom dans le champ **"Nom du nouveau projet de revue"** et clique sur **Créer**. Chaque projet est indépendant :
 
 - ses recherches ;
-- ses décisions de criblage ;
+- ses décisions de tri ;
 - son extraction ;
 - et ses méta-analyses lui sont propres.
 
@@ -52,7 +52,7 @@ Depuis la page d'un projet, section **"Nouvelle recherche OpenAlex"** :
 
 Avant de lancer l'import, cliquer sur **"Aperçu du nombre de résultats"** pour voir combien de documents OpenAlex trouve avec ces critères, sans rien importer. Vous pouvez affiner votre requête tant que ce nombre vous semble déraisonnable.
 
-Quand la requête te convient, cliquer sur **"Lancer la recherche et importer"**. L'import se fait **en tâche de fond** : le bouton répond immédiatement et la recherche apparaît dans la liste **"Recherches effectuées"** avec le statut *"import en cours…"*, qui se met à jour automatiquement (toutes les 2 secondes) jusqu'à ce que l'import soit terminé. Vous pouvez continuer à naviguer pendant ce temps.
+Quand la requête est convenable, cliquer sur **"Lancer la recherche et importer"**. L'import se fait **en tâche de fond** : le bouton répond immédiatement et la recherche apparaît dans la liste **"Recherches effectuées"** avec le statut *"import en cours…"*, qui se met à jour automatiquement (toutes les 2 secondes) jusqu'à ce que l'import soit terminé. Vous pouvez continuer à naviguer pendant ce temps.
 
 > Les doublons (même identifiant OpenAlex retrouvé par une recherche précédente) ne sont jamais importés deux fois. Ils sont simplement rattachés à la nouvelle recherche.
 
@@ -60,11 +60,11 @@ Cliquer sur une recherche dans la liste pour filtrer les records affichés en de
 
 Cliquer sur **"Tous les records"** pour revenir à la vue complète.
 
-## 3. Cribler les titres et résumés
+## 3. Tri sur titres et résumés
 
-![Écran de criblage titre/résumé avec la carte d'un record](images/screening-title-abstract.png)
+![Écran de tri sur titre/résumé avec la carte d'un record](images/screening-title-abstract.png)
 
-Cliquer sur **"Cribler titre/résumé"** depuis la page du projet.
+Cliquer sur **"Tri sur titre/résumé"** depuis la page du projet.
 
 L'écran présente une carte par record (titre, auteurs, revue, année, résumé) avec trois décisions possibles :
 
@@ -76,15 +76,15 @@ L'écran présente une carte par record (titre, auteurs, revue, année, résumé
 
 Pour une exclusion, un motif est demandé : choisir parmi les chips proposées (Hors sujet, Mauvais design d'étude, Population non pertinente, Langue non prise en charge, Doublon, Autre) ou le préciser librement, puis cliquer sur **"Confirmer l'exclusion"**. **Échap** annule et permet de revenir à la carte.
 
-La barre de progression en haut indique le nombre de records criblés sur le total, avec la répartition inclus/exclus/incertains.
+La barre de progression en haut indique le nombre de records triés sur le total, avec la répartition inclus/exclus/incertains.
 
-**"Voir l'historique des décisions"** liste toutes les décisions prises, avec un bouton **Annuler** par ligne pour revenir sur une décision (le record retourne alors dans la file à cribler).
+**"Voir l'historique des décisions"** liste toutes les décisions prises, avec un bouton **Annuler** par ligne pour revenir sur une décision (le record retourne alors dans la file à trier).
 
-## 4. Cribler le texte intégral
+## 4. Tri en texte intégral
 
-![Écran de criblage texte intégral avec le lien vers le DOI](images/screening-full-text.png)
+![Écran de tri en texte intégral avec le lien vers le DOI](images/screening-full-text.png)
 
-Cliquer sur **"Cribler texte intégral"**. Le fonctionnement est identique au criblage titre/résumé, à deux différences près :
+Cliquer sur **"Tri en texte intégral"**. Le fonctionnement est identique au tri sur titre/résumé, à deux différences près :
 
 - Seuls les records **inclus** au stade titre/résumé apparaissent dans cette file.
 - Un lien **"Ouvrir le texte intégral ↗"** (vers le DOI) est affiché sur chaque carte pour aller consulter l'article complet avant de décider.
@@ -95,11 +95,11 @@ Le badge en haut de page (**1. Titre / résumé** — **2. Texte intégral**) pe
 
 ![Diagramme de flux PRISMA généré automatiquement](images/prisma-flow.png)
 
-Cliquer sur **"Diagramme PRISMA"**. Le diagramme se génère automatiquement à partir des décisions de criblage, en suivant la structure standard PRISMA 2020 :
+Cliquer sur **"Diagramme PRISMA"**. Le diagramme se génère automatiquement à partir des décisions de tri, en suivant la structure standard PRISMA 2020 :
 
-> **Identification** → records identifiés sur OpenAlex, doublons retirés → **Sélection** → records criblés et exclus (avec motifs) au stade titre/résumé, puis au stade texte intégral → **Inclusion** → études incluses dans la revue.
+> **Identification** → records identifiés sur OpenAlex, doublons retirés → **Tri** → records triés et exclus (avec motifs) au stade titre/résumé, puis au stade texte intégral → **Inclusion** → études incluses dans la revue.
 
-Un encart séparé signale les records encore incertains ou pas encore criblés, une catégorie propre à l'outil qui n'existe pas dans le diagramme PRISMA officiel.
+Un encart séparé signale les records encore incertains ou pas encore triés, une catégorie propre à l'outil qui n'existe pas dans le diagramme PRISMA officiel.
 
 Utiliser **"Exporter PNG"** ou **"Exporter SVG"** pour récupérer une image du diagramme, à inclure dans ton manuscrit ou en matériel supplémentaire.
 
@@ -159,7 +159,7 @@ Cliquer sur **"Export"**. Deux blocs :
 
 **Exports de données.** Quatre téléchargements directs :
 
-- **Records (CSV)** : tous les records du projet avec leurs décisions de criblage.
+- **Records (CSV)** : tous les records du projet avec leurs décisions de tri.
 - **Extraction (CSV)** : la grille d'extraction des études incluses.
 - **Tailles d'effet (CSV)** : toutes les tailles d'effet saisies.
 - **Rapport (Markdown)** : document assemblant automatiquement question de recherche, méthode de recherche, chiffres du flux PRISMA, tableau des études incluses et résultats des méta-analyses. Bonne base pour rédiger la section méthodes/résultats d'un manuscrit.
@@ -170,7 +170,7 @@ Cliquer sur **"Export"**. Deux blocs :
 
 Depuis la liste des projets ou la page d'un projet, cliquer sur **"Supprimer"** / **"Supprimer le projet"**. Une confirmation est demandée :
 
-*la suppression est **définitive** et entraîne celle de toutes les données associées (recherches, records, décisions de criblage, extraction, tailles d'effet, méta-analyses, checklist).*
+*la suppression est **définitive** et entraîne celle de toutes les données associées (recherches, records, décisions de tri, extraction, tailles d'effet, méta-analyses, checklist).*
 
 ## 10. Problèmes courants
 

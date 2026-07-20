@@ -28,7 +28,7 @@ export default function ProjectList() {
 
   const handleDelete = async (project: Project) => {
     const confirmed = window.confirm(
-      `Supprimer définitivement "${project.name}" ? Toutes les recherches, décisions de criblage, extractions et méta-analyses associées seront perdues. Cette action est irréversible.`,
+      `Supprimer définitivement "${project.name}" ? Toutes les recherches, décisions de tri, extractions et méta-analyses associées seront perdues. Cette action est irréversible.`,
     )
     if (!confirmed) return
     await api.deleteProject(project.id)
@@ -42,7 +42,7 @@ export default function ProjectList() {
           Revues systématiques
         </h1>
         <p className="mt-2 text-muted">
-          Recherche, criblage PRISMA et méta-analyse à partir d'OpenAlex.
+          Recherche, tri PRISMA et méta-analyse à partir d'OpenAlex.
         </p>
       </header>
 

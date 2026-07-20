@@ -18,6 +18,11 @@ const STAGE_LABEL: Record<ScreeningStage, string> = {
   full_text: 'Texte intégral',
 }
 
+const STAGE_HEADING: Record<ScreeningStage, string> = {
+  title_abstract: 'Tri sur titres et résumés',
+  full_text: 'Tri en texte intégral',
+}
+
 const EXCLUSION_REASONS = [
   'Hors sujet',
   "Mauvais design d'étude",
@@ -144,7 +149,7 @@ export default function ProjectScreening() {
         </div>
 
         <h1 className="mt-3 text-2xl font-semibold tracking-tight text-ink">
-          Criblage — {STAGE_LABEL[stage]}
+          {STAGE_HEADING[stage]}
         </h1>
 
         {progress && (
@@ -158,7 +163,7 @@ export default function ProjectScreening() {
               />
             </div>
             <p className="mt-2 text-sm text-muted">
-              {progress.screened} / {progress.total} criblés · {progress.included} inclus ·{' '}
+              {progress.screened} / {progress.total} triés · {progress.included} inclus ·{' '}
               {progress.excluded} exclus · {progress.maybe} incertains
             </p>
           </div>
@@ -169,7 +174,7 @@ export default function ProjectScreening() {
 
       {!loading && !current && progress?.total === 0 && (
         <div className="rounded-xl border border-line p-8 text-center">
-          <p className="text-lg font-medium text-ink">Rien à cribler pour l'instant</p>
+          <p className="text-lg font-medium text-ink">Rien à trier pour l'instant</p>
           <p className="mt-1 text-sm text-muted">
             {stage === 'full_text'
               ? "Aucun record n'a encore été inclus au stade titre / résumé."
@@ -180,9 +185,9 @@ export default function ProjectScreening() {
 
       {!loading && !current && progress && progress.total > 0 && (
         <div className="rounded-xl border border-line p-8 text-center">
-          <p className="text-lg font-medium text-ink">Criblage terminé</p>
+          <p className="text-lg font-medium text-ink">Tri terminé</p>
           <p className="mt-1 text-sm text-muted">
-            Tous les records ont été criblés pour cette étape.
+            Tous les records ont été triés pour cette étape.
           </p>
         </div>
       )}

@@ -146,11 +146,11 @@ export default function PrismaFlowDiagram() {
         />
         <DownConnector />
 
-        <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wide text-muted">Sélection</p>
+        <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wide text-muted">Tri</p>
         <Row
           main={
             <Box>
-              Records criblés (titre / résumé)
+              Records triés (titre / résumé)
               <br />
               (n = {flow.records_screened})
             </Box>
@@ -188,9 +188,9 @@ export default function PrismaFlowDiagram() {
         <div className="mt-8 rounded-xl border border-line p-4 text-sm text-muted">
           <p className="font-medium text-ink">En attente de décision finale</p>
           <ul className="mt-1 space-y-0.5">
-            {flow.pending_title_abstract > 0 && <li>{flow.pending_title_abstract} record(s) pas encore criblés (titre/résumé)</li>}
+            {flow.pending_title_abstract > 0 && <li>{flow.pending_title_abstract} record(s) pas encore triés (titre/résumé)</li>}
             {flow.maybe_title_abstract > 0 && <li>{flow.maybe_title_abstract} record(s) marqués incertains (titre/résumé)</li>}
-            {flow.pending_full_text > 0 && <li>{flow.pending_full_text} record(s) pas encore criblés (texte intégral)</li>}
+            {flow.pending_full_text > 0 && <li>{flow.pending_full_text} record(s) pas encore triés (texte intégral)</li>}
             {flow.maybe_full_text > 0 && <li>{flow.maybe_full_text} record(s) marqués incertains (texte intégral)</li>}
           </ul>
         </div>

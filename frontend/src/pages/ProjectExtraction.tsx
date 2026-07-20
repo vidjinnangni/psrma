@@ -155,7 +155,7 @@ export default function ProjectExtraction() {
             to={`/projects/${projectId}/screening/full-text`}
             className="mt-4 inline-block text-sm text-accent hover:underline"
           >
-            Aller au criblage texte intégral →
+            Aller au tri en texte intégral →
           </Link>
         </div>
       ) : (
