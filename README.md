@@ -54,12 +54,31 @@ frontend/
 
 ## Installation
 
-### Prerequisites
+Clone the repository first (both options below assume you're inside it):
+
+```bash
+git clone https://github.com/vidjinnangni/psrma.git
+cd psrma
+```
+
+### Option A: Docker (fastest)
+
+Requires only [Docker](https://docs.docker.com/get-docker/) and Docker Compose, no local Python or Node.js setup.
+
+```bash
+docker compose up
+```
+
+This builds and starts both servers with live-reload (source code is bind-mounted, so edits on the host are picked up immediately, exactly like running them natively). Open [http://localhost:5173](http://localhost:5173). The SQLite database persists on the host at `backend/data/prisma_tool.db` between restarts and rebuilds.
+
+### Option B: Manual install
+
+#### Prerequisites
 
 - Python 3.11 or later
 - Node.js 20 or later
 
-### Backend
+#### Backend
 
 ```bash
 cd backend
@@ -68,7 +87,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Frontend
+#### Frontend
 
 ```bash
 cd frontend
@@ -77,7 +96,9 @@ npm install
 
 ## Running the app
 
-Two servers to start in parallel, in two terminals:
+If you used Docker (Option A above), `docker compose up` already starts both servers — skip this section.
+
+Otherwise, start two servers in parallel, in two terminals:
 
 ```bash
 # Terminal 1 — backend (http://localhost:8000)
