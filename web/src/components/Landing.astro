@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import { content, REPO, type Locale } from '../i18n/content';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = content[locale];
+const home = locale === 'fr' ? '/' : '/en/';
+---
+<Base locale={locale}>
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href={home} aria-label="PSRMA">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M9 23V9h7a4.5 4.5 0 0 1 0 9H9" fill="none" stroke="var(--bg)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23" cy="22" r="2.6" fill="var(--accent)"/></svg>
+        PSRMA
+      </a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="#pipeline">{t.nav.pipeline}</a>
+        <a href="#screens">{t.nav.screens}</a>
+        <a href="#principles">{t.nav.principles}</a>
+        <a href="#install">{t.nav.install}</a>
+        <a class="lang" href={t.switchTo.href} hreflang={t.switchTo.label.toLowerCase()}>{t.switchTo.label}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">{t.hero.eyebrow}</p>
+        <h1>{t.hero.title[0]}<br /><span class="accent">{t.hero.title[1]}</span></h1>
+        <p class="lead">{t.hero.lead}</p>
+        <div class="btns">
+          <a class="btn primary" href="#install">{t.hero.cta}</a>
+          <a class="btn" href={REPO} rel="noopener">{t.hero.ctaSecondary} ↗</a>
+        </div>
+        <p class="note">{t.hero.note}</p>
+      </div>
+    </section>
+
+    <section id="pipeline">
+      <div class="wrap">
+        <h2 class="reveal">{t.pipeline.title}</h2>
+        <p class="lead reveal">{t.pipeline.lead}</p>
+        <ol class="steps reveal" style="list-style:none;padding:0">
+          {t.pipeline.steps.map(([name, text], i) => (
+            <li class="step">
+              <span class="n">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{name}</h3>
+              <p>{text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id="screens" class="screens">
+      <div class="wrap">
+        <h2 class="reveal">{t.screens.title}</h2>
+        <p class="lead reveal">{t.screens.lead}</p>
+        <div class="shots">
+          {t.screens.items.map((s) => (
+            <div class="shot reveal">
+              <figure>
+                <div class="frame">
+                  <img src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+                </div>
+                <figcaption><strong>{s.caption}</strong><span>{s.text}</span></figcaption>
+              </figure>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <h2 class="reveal">{t.principles.title}</h2>
+        <p class="lead reveal">{t.principles.lead}</p>
+        <div class="principles">
+          {t.principles.items.map(([name, text]) => (
+            <div class="principle reveal">
+              <h3>{name}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="install">
+      <div class="wrap">
+        <div>
+          <h2>{t.install.title}</h2>
+          <p class="lead">{t.install.lead}</p>
+          <div class="btns">
+            <a class="btn primary" href={t.install.guideHref} rel="noopener">{t.install.guide}</a>
+            <a class="btn" href={`${REPO}#readme`} rel="noopener">{t.install.readme} ↗</a>
+          </div>
+        </div>
+        <div>
+          <pre class="code" aria-label="Terminal">{t.install.code.split('\n').map((l) => (<><span>$ </span>{l}{'\n'}</>))}</pre>
+          <p class="after">{t.install.after}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>{t.footer.tagline}</p>
+      <div class="links">
+        <a href={REPO} rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub
+        </a>
+        <a href={`${REPO}/blob/main/LICENSE`} rel="noopener">{t.footer.license}</a>
+      </div>
+    </div>
+  </footer>
+</Base>

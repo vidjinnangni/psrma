@@ -50,7 +50,17 @@ frontend/
     pages/                      # one page per pipeline stage
     components/ForestPlot.tsx    # forest plot SVG component
     App.tsx, main.tsx              # routing and React entry point
+
+web/                              # landing page (Astro, deployed on Vercel), independent from the app
+  src/
+    i18n/content.ts                # FR/EN copy
+    components/Landing.astro        # page markup
+    styles/global.css                # design tokens, light/dark
+  public/                           # favicon, OG image, screenshots
+  scripts/og.mjs                     # generates public/og.png
 ```
+
+The landing page is a static site, separate from the app: see [web/README.md](web/README.md) to run it locally and deploy it.
 
 ## Installation
 
